@@ -1,6 +1,6 @@
 {
   "name": "ethor",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "framework's framework",
   "scripts": {
     "cli": "node core/cli/index_.js"

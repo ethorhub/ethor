@@ -1,6 +1,6 @@
 {
   "name": "@ethor/cli",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "framework's framework's cli",
   "bin": {
     "ethor": "core/cli/index.js"

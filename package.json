@@ -1,6 +1,6 @@
 {
   "name": "ethor",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "framework's framework",
   "bin": {
     "ethor": "core/cli/index.js"
@@ -28,10 +28,10 @@
     "eslint-import-resolver-typescript": "^1.1.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-security": "^1.4.0",
-    "inquirer": "^7.0.0",
     "typescript": "^3.6.2"
   },
   "dependencies": {
+    "inquirer": "^7.0.0",
     "meow": "^5.0.0",
     "require-all": "^3.0.0",
     "update-notifier": "^3.0.1"

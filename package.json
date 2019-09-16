@@ -29,10 +29,11 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-security": "^1.4.0",
     "inquirer": "^7.0.0",
-    "meow": "^5.0.0",
     "require-all": "^3.0.0",
     "typescript": "^3.6.2",
     "update-notifier": "^3.0.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "meow": "^5.0.0"
+  }
 }

@@ -1,12 +1,12 @@
 {
   "name": "@ethor/cli",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "framework's framework's cli",
   "bin": {
-    "ethor": "core/cli/index.js"
+    "ethor": "./index.js"
   },
   "scripts": {
-    "cli": "node core/cli/index_.js"
+    "cli": "node ./index_.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/ethorhub/ethor/issues"
   },
-  "homepage": "https://github.com/ethorhub/ethor/core/cli#readme",
+  "homepage": "https://github.com/ethorhub/ethor/tree/master/core/cli#readme",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.1.0",
     "@typescript-eslint/parser": "^2.1.0",

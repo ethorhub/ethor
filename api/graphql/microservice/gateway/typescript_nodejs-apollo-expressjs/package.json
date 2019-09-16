@@ -1,0 +1,29 @@
+{
+  "name": "typescript_nodejs-apollo-expressjs",
+  "description": "run|api|graphql|microservice|typescript_nodejs-apollo-expressjs",
+  "scripts": {
+    "build": "rm -rf build && npx typescript --project tsconfig.json",
+    "dev": "ts-node --log-error --project tsconfig.json --files index.ts",
+    "start": "cross-env NODE_ENV=production node build/index.js",
+    "test": "cross-env NODE_ENV=test jest",
+    "install_all": "npm i",
+    "install_dev": "npm i --save-dev",
+    "install_prod": "npm i --save-prod",
+    "clean_cache": "concurrently \"npm:clean_cache:*\"",
+    "clean_cache:build": "rm -rf build",
+    "lint": "eslint --ext .ts ./"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@types/module-alias": "^2.0.0",
+    "@types/node": "^12.7.3",
+    "concurrently": "^4.1.2",
+    "eslint": "^6.3.0",
+    "ts-node": "^8.3.0"
+  },
+  "dependencies": {
+    "cross-env": "^5.2.1",
+    "dotenv": "^8.1.0",
+    "module-alias": "^2.2.1"
+  }
+}

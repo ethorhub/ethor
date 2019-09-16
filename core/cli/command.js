@@ -7,12 +7,12 @@ const cli = require("./script/meow");
 const flags = cli.flags;
 (async () => {
   if (flags.commands) {
-    commands = flags.commands;
-  } else {
     require("./script/update-notifier");
     const main = require("./script/inquirer");
     mainAnswers = await main();
     commands = mainAnswers.selectType;
+  } else {
+    commands = flags.commands;
   }
   var allCommandsRun = "";
   commands.split(",").map(command => {

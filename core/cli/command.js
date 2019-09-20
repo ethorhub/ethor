@@ -9,10 +9,11 @@ const flags = cli.flags;
   if (flags.commands) {
     commands = flags.commands;
   } else {
-    require("./script/update-notifier");
-    const main = require("./script/inquirer");
+    // require("./script/update-notifier");
+    const main = require("./script/prompt");
     mainAnswers = await main();
     commands = mainAnswers.selectType;
+    console.log(commands);
   }
   var allCommandsRun = "";
   commands.split(",").map(command => {
@@ -22,6 +23,7 @@ const flags = cli.flags;
       .join("|");
     if (commandSplit === "") commandSplit = command;
     const choices = require("./script/choices")[commandSplit];
+    if (!choices) throw "COMMAND NOT FOUND ------ " + commands + " ------";
     choices.map(allCommandsCommand => {
       if (command === allCommandsCommand.value) {
         if (allCommandsRun === "")

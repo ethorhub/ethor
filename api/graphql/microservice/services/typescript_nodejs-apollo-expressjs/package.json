@@ -1,6 +1,6 @@
 {
   "name": "typescript_nodejs-apollo-expressjs",
-  "description": "api|graphql|microservice|gateway|typescript_nodejs-apollo-expressjs",
+  "description": "api|graphql|microservice|services|typescript_nodejs-apollo-expressjs",
   "scripts": {
     "build": "rm -rf build && npx typescript --project tsconfig.json",
     "dev": "ts-node --log-error --project tsconfig.json --files index.ts",
@@ -22,10 +22,11 @@
     "ts-node": "^8.3.0"
   },
   "dependencies": {
-    "@apollo/gateway": "^0.10.4",
+    "@apollo/federation": "^0.9.4",
     "apollo-server": "^2.9.3",
     "cross-env": "^5.2.1",
     "dotenv": "^8.1.0",
-    "module-alias": "^2.2.1"
+    "module-alias": "^2.2.1",
+    "require-glob": "^3.2.0"
   }
 }

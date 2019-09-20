@@ -1,6 +1,6 @@
 {
   "name": "@ethor/cli",
-  "version": "0.0.9",
+  "version": "0.0.20",
   "description": "framework's framework's cli",
   "bin": {
     "ethor": "./index.js"
@@ -18,22 +18,10 @@
     "url": "https://github.com/ethorhub/ethor/issues"
   },
   "homepage": "https://github.com/ethorhub/ethor/tree/master/core/cli#readme",
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^2.1.0",
-    "@typescript-eslint/parser": "^2.1.0",
-    "eslint": "^6.3.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-config-prettier": "^6.1.0",
-    "eslint-import-resolver-alias": "^1.1.2",
-    "eslint-import-resolver-typescript": "^1.1.1",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-security": "^1.4.0",
-    "typescript": "^3.6.2"
-  },
   "dependencies": {
-    "inquirer": "^7.0.0",
+    "enquirer": "^2.3.1",
+    "enquirer-separator": "^0.1.0",
     "meow": "^5.0.0",
-    "require-all": "^3.0.0",
-    "update-notifier": "^3.0.1"
+    "require-all": "^3.0.0"
   }
 }

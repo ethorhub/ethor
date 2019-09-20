@@ -2,7 +2,7 @@ const meow = require("meow");
 const cli = meow(
   `
     Usage
-      $ ethor <input> Start in inquirer mode
+      $ ethor <input> Start in prompt mode
  
     Options
       --help, -h
@@ -11,7 +11,7 @@ const cli = meow(
  
     Examples
       $ ethor
-      $ ethor --commands 'open_docs,run|api|graphql|microservice|typescript_nodejs-apollo-expressjs|run_lint'
+      $ ethor --commands 'open_docs,api|graphql|microservice|gateway|typescript_nodejs-apollo-expressjs|run_lint'
 `,
   {
     flags: {
@@ -22,10 +22,6 @@ const cli = meow(
       version: {
         type: "boolean",
         alias: "v"
-      },
-      inquirer: {
-        type: "boolean",
-        alias: "i"
       },
       commands: {
         type: "string",

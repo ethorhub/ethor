@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "*": ["@types/*"],
+      "@@config": ["./utils/config.ts"]
+    },
+    "target": "esnext",
+    "module": "commonjs",
+    "allowJs": true,
+    "sourceMap": true,
+    "outDir": "build",
+    "strict": true,
+    "typeRoots": ["./node_modules/@types", "./@types"],
+    "esModuleInterop": true
+  },
+  "exclude": ["node_modules", "build"],
+  "include": ["**/*.ts"]
+}

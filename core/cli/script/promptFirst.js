@@ -1,5 +1,7 @@
-const inquirer = require("inquirer");
+const Seperator = require("enquirer-separator");
+
 const choices = require("./choices");
+
 module.exports = () => {
   const fs = require("fs");
   const path = require("path");
@@ -18,11 +20,11 @@ module.exports = () => {
   recents = JSON.parse(recents);
   const choicesFirst = [{ name: "Run", value: "run" }, choices.open_docs[0]];
   if (recents.length > 0) {
-    choicesFirst.push(new inquirer.Separator("--------- Recent ---------"));
+    choicesFirst.push(new Seperator("--------- Recent ---------"));
     recents.map(recent => {
       choicesFirst.push(recent);
     });
-    choicesFirst.unshift(new inquirer.Separator("--------- Default ---------"));
+    // choicesFirst.unshift(new Seperator("--------- Default ---------"));
   }
   return choicesFirst;
 };

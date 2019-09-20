@@ -14,5 +14,17 @@
   "bugs": {
     "url": "https://github.com/ethorhub/ethor/issues"
   },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.1.0",
+    "@typescript-eslint/parser": "^2.1.0",
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-typescript": "^1.1.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-security": "^1.4.0",
+    "typescript": "^3.6.2"
+  },
   "homepage": "https://github.com/ethorhub/ethor#readme"
 }

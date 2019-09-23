@@ -1,10 +1,6 @@
 module.exports = command => {
   const { spawn } = require("child_process");
-  const { resolve } = require("path");
-  command = command.replace(
-    new RegExp("{project}", "g"),
-    resolve(__dirname, "..", "..", "..")
-  );
+  command = command.replace(new RegExp("{project}", "g"), process.cwd());
   var child = spawn(command, {
     shell: true,
     stdio: "inherit"

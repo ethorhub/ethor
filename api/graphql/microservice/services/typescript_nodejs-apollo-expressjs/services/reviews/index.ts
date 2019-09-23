@@ -1,5 +1,5 @@
-const { ApolloServer, gql } = require("apollo-server");
-const { buildFederatedSchema } = require("@apollo/federation");
+import { ApolloServer, gql } from "apollo-server";
+import { buildFederatedSchema } from "@apollo/federation";
 
 const typeDefs = gql`
   type Review @key(fields: "id") {
@@ -18,44 +18,6 @@ const typeDefs = gql`
     reviews: [Review]
   }
 `;
-
-const resolvers = {
-  Review: {
-    author(review) {
-      return { __typename: "User", id: review.authorID };
-    }
-  },
-  User: {
-    reviews(user) {
-      return reviews.filter(review => review.authorID === user.id);
-    },
-    numberOfReviews(user) {
-      return reviews.filter(review => review.authorID === user.id).length;
-    },
-    username(user) {
-      const found = usernames.find(username => username.id === user.id);
-      return found ? found.username : null;
-    }
-  },
-  Product: {
-    reviews(product) {
-      return reviews.filter(review => review.product.upc === product.upc);
-    }
-  }
-};
-
-const server = new ApolloServer({
-  schema: buildFederatedSchema([
-    {
-      typeDefs,
-      resolvers
-    }
-  ])
-});
-
-server.listen({ port: 4002 }).then(({ url }) => {
-  console.log(`🚀 Server ready at ${url}`);
-});
 
 const usernames = [
   { id: "1", username: "@ada" },
@@ -87,3 +49,41 @@ const reviews = [
     body: "Prefer something else."
   }
 ];
+
+const resolvers = {
+  Review: {
+    author(review: { authorID: string }): unknown {
+      return { __typename: "User", id: review.authorID };
+    }
+  },
+  User: {
+    reviews(user: { id: string }): unknown {
+      return reviews.filter(review => review.authorID === user.id);
+    },
+    numberOfReviews(user: { id: string }): unknown {
+      return reviews.filter(review => review.authorID === user.id).length;
+    },
+    username(user: { id: string }): unknown {
+      const found = usernames.find(username => username.id === user.id);
+      return found ? found.username : null;
+    }
+  },
+  Product: {
+    reviews(product: { upc: string }): unknown {
+      return reviews.filter(review => review.product.upc === product.upc);
+    }
+  }
+};
+
+const server = new ApolloServer({
+  schema: buildFederatedSchema([
+    {
+      typeDefs,
+      resolvers
+    }
+  ])
+});
+
+server.listen({ port: 4002 }).then(({ url }) => {
+  console.log(`🚀 Server ready at ${url}`);
+});

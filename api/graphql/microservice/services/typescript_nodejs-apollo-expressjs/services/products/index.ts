@@ -1,5 +1,5 @@
-const { ApolloServer, gql } = require("apollo-server");
-const { buildFederatedSchema } = require("@apollo/federation");
+import { ApolloServer, gql } from "apollo-server";
+import { buildFederatedSchema } from "@apollo/federation";
 
 const typeDefs = gql`
   extend type Query {
@@ -12,32 +12,6 @@ const typeDefs = gql`
     weight: Int
   }
 `;
-
-const resolvers = {
-  Product: {
-    __resolveReference(object) {
-      return products.find(product => product.upc === object.upc);
-    }
-  },
-  Query: {
-    topProducts(_, args) {
-      return products.slice(0, args.first);
-    }
-  }
-};
-
-const server = new ApolloServer({
-  schema: buildFederatedSchema([
-    {
-      typeDefs,
-      resolvers
-    }
-  ])
-});
-
-server.listen({ port: 4003 }).then(({ url }) => {
-  console.log(`🚀 Server ready at ${url}`);
-});
 
 const products = [
   {
@@ -59,3 +33,29 @@ const products = [
     weight: 50
   }
 ];
+
+const resolvers = {
+  Product: {
+    __resolveReference(object: { upc: string }): unknown {
+      return products.find(product => product.upc === object.upc);
+    }
+  },
+  Query: {
+    topProducts(_: unknown, args: unknown): unknown {
+      return products.slice(0, (args as { first: number }).first);
+    }
+  }
+};
+
+const server = new ApolloServer({
+  schema: buildFederatedSchema([
+    {
+      typeDefs,
+      resolvers
+    }
+  ])
+});
+
+server.listen({ port: 4003 }).then(({ url }) => {
+  console.log(`🚀 Server ready at ${url}`);
+});

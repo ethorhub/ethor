@@ -1,12 +1,9 @@
 {
   "name": "@ethor/cli",
-  "version": "0.0.20",
-  "description": "framework's framework's cli",
+  "version": "0.1.0",
+  "description": "software master",
   "bin": {
-    "ethor": "./index.js"
-  },
-  "scripts": {
-    "cli": "node ./index_.js"
+    "cli": "./index.js"
   },
   "repository": {
     "type": "git",
